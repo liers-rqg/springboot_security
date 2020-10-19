@@ -1,0 +1,21 @@
+#启动端口号
+server:
+  port: 8100
+
+spring:
+  #thymeleaf配置
+  thymeleaf:
+
+    cache: false
+
+  #数据库配置
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql:///learn_1?serverTimezone=Asia/Shanghai
+    password: 123321
+    username: root
+    type: org.springframework.jdbc.datasource.DriverManagerDataSource
+
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: cn.rqg.springboot_security.pojo

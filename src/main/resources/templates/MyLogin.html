@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Security测试登录页</title>
+    <!-- Jquery -->
+    <script type="text/javascript" src="../static/js/jquery.js" th:src="@{/js/jquery.js}"></script>
+
+    <!-- Layui -->
+    <link rel="stylesheet" href="../static/layui/css/layui.css" th:href="@{/layui/css/layui.css}" type="text/css">
+    <script type="text/javascript" src="../static/layui/layui.js" th:src="@{/layui/layui.js}" charset="utf-8"></script>
+    <style>
+        /*上下左右居中*/
+        .main {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 150px;
+        }
+    </style>
+</head>
+<body>
+<div class="main">
+    <!--用户登陆表单-->
+    <form class="layui-form layui-form-pane" th:action="@{/login}" method="post">
+        <!--标题栏-->
+        <div class="layui-form-item">
+            <h1 style="text-align: center">Security登录测试</h1>
+        </div>
+        <!--回写错误信息-->
+        <div th:if="${param.error}">
+
+        </div>
+        <!--用户名-->
+        <div class="layui-form-item">
+            <label class="layui-form-label">用户名<i class="layui-icon layui-icon-username"></i></label>
+            <div class="layui-input-block">
+                <input class="layui-input" type="text" id="username" name="username" placeholder="请输入用户名">
+            </div>
+        </div>
+        <!--密码-->
+        <div class="layui-form-item">
+            <label class="layui-form-label">密码<i class="layui-icon layui-icon-password"></i></label>
+            <div class="layui-input-block">
+                <input class="layui-input" type="text" id="password" name="password" placeholder="请输入密码">
+            </div>
+        </div>
+        <!--提交-->
+        <div class="layui-form-item">
+            <div class="layui-input-block">
+                <input class="layui-btn" style="margin-left: -50px;margin-right: 50px;" type="submit" value="登录">
+               <!-- <a class="layui-btn" style="margin-left: -50px;margin-right: 50px;" onclick="formSubmit()">登录</a>-->
+            </div>
+        </div>
+
+    </form>
+</div>
+</body>
+<script>
+    /*提交异步请求*/
+    /*function formSubmit() {
+        $.post(
+            "/login", {
+                username: $("#username").val(),
+                password: $("#password").val(),
+            }, function (data) {
+                window.location.href = data.url;
+            })
+    }*/
+</script>
+</html>
